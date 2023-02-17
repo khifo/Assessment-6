@@ -6,6 +6,8 @@ var rollbar = new Rollbar({
 })
 
 rollbar.log('Hello world!')
+// http://35.163.190.118/ public IPv4 address 
+// http://ec2-35-163-190-118.us-west-2.compute.amazonaws.com/ public IPv4 DNS address
 
 app.get('/example', (req, res) => {
     try {
