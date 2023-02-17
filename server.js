@@ -8,6 +8,30 @@ var rollbar = new Rollbar({
 
 // record a generic message and send it to Rollbar
 rollbar.log('Hello world!')
+
+app.get('/example', (req, res) => {
+    try {
+      rollbar.info('Endpoint hit', req);
+      
+      if (condition) {
+        rollbar.warning('Condition met', req);
+      }
+      
+      if (error) {
+        rollbar.error('Error occurred', error);
+      }
+      
+      if (data) {
+        rollbar.log('Data received', data);
+      }
+      
+      res.send('Success');
+    } catch (err) {
+      rollbar.error(err, req);
+      res.status(500).send('Something broke!');
+    }
+  });
+  
 const express = require('express')
 const app = express()
 const {bots, playerRecord} = require('./data')
