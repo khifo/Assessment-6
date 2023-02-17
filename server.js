@@ -1,3 +1,13 @@
+// include and initialize the rollbar library with your access token
+var Rollbar = require('rollbar')
+var rollbar = new Rollbar({
+  accessToken: '0f3071e1721b4fe68d4895fd0c577f2a',
+  captureUncaught: true,
+  captureUnhandledRejections: true,
+})
+
+// record a generic message and send it to Rollbar
+rollbar.log('Hello world!')
 const express = require('express')
 const app = express()
 const {bots, playerRecord} = require('./data')
